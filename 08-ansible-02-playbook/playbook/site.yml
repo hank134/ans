@@ -5,7 +5,7 @@
     - name: Start clickhouse service
       become: true
       ansible.builtin.service:
-        name: clickhouse-server
+        name: clickhouse-server 
         state: restarted
   tasks:
     - block:
@@ -27,8 +27,38 @@
           - clickhouse-client-{{ clickhouse_version }}.rpm
           - clickhouse-server-{{ clickhouse_version }}.rpm
       notify: Start clickhouse service
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers
     - name: Create database
       ansible.builtin.command: "clickhouse-client -q 'create database logs;'"
       register: create_db
       failed_when: create_db.rc != 0 and create_db.rc !=82
       changed_when: create_db.rc == 0
+- name: Install Vector
+  hosts: vector-01
+  handlers:
+    - name: Start Vector service
+      become: true
+      ansible.builtin.service:
+        name: vector
+        state: restarted
+  tasks:
+    - name: Get Vector
+      ansible.builtin.get_url:
+        url: "https://packages.timber.io/vector/0.21.2/vector-0.21.2-1.x86_64.rpm"
+        dest: "./vector-0.21.2-1.x86_64.rpm"
+    - name: Install Vector
+      become: true
+      ansible.builtin.yum: name=https://packages.timber.io/vector/0.21.2/vector-0.21.2-1.x86_64.rpm
+      notify: Start Vector service
+  post_tasks:
+    - name: Copy_config_vector
+      ansible.builtin.copy:
+        src: ./vector_cfg/vector.toml
+        dest: /home/centos/vector.toml
+    - name: Test Start Vector
+      ansible.builtin.command: vector --config /home/centos/vector.toml
+      register: st
+    - name: Debug vars
+      debug: var=st.stdout_lines
+
