@@ -17,8 +17,9 @@
 7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
 9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
-10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
-
+ [README.md]]https://github.com/hank134/ansible8/blob/08-ansible-02-playbook/08-ansible-02-playbook/playbook/README.md
+11. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-02-playbook` на фиксирующий коммит, в ответ предоставьте ссылку на него.
+[Playbook]https://github.com/hank134/ansible8/blob/08-ansible-02-playbook/08-ansible-02-playbook/playbook/site.yml
 ---
 
 ### Как оформить ДЗ?
@@ -26,3 +27,5 @@
 Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 
 ---
+
+

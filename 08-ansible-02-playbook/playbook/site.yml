@@ -43,10 +43,6 @@
         name: vector
         state: restarted
   tasks:
-    - name: Get Vector
-      ansible.builtin.get_url:
-        url: "https://packages.timber.io/vector/0.21.2/vector-0.21.2-1.x86_64.rpm"
-        dest: "./vector-0.21.2-1.x86_64.rpm"
     - name: Install Vector
       become: true
       ansible.builtin.yum: name=https://packages.timber.io/vector/0.21.2/vector-0.21.2-1.x86_64.rpm
