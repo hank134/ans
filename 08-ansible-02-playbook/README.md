@@ -24,9 +24,7 @@
     [Playbook](https://github.com/hank134/ansible8/blob/08-ansible-02-playbook/08-ansible-02-playbook/playbook/site.yml)
 ---
 
-### Как оформить ДЗ?
 
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 
 ---
 
