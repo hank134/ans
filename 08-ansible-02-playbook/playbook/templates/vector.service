@@ -1,0 +1,10 @@
+[Unit]
+Description=Vector service
+After=network.service
+Requires=network-online.target
+[Service]
+User=Centos
+ExecStart=/usr/bin/vector--config /home/centos/vector.toml --watch-config true
+Restart=always
+[Install]
+WantedBy=multi-user.target

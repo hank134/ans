@@ -1,17 +1,12 @@
-[sources.generate_syslog]
-type = "demo_logs"
-format = "syslog"
-count = 10
-
-[transforms.remap_syslog]
-inputs = [ "generate_syslog"]
-type = "remap"
-source = '''
-  structured = parse_syslog!(.message)
-  . = merge(., structured)
-'''
-
-[sinks.emit_syslog]
-inputs = ["remap_syslog"]
-type = "console"
-encoding.codec = "json"
+[sources.our_log]
+type = "file"
+ignore_older_secs = 600
+include = [ "/home/centos/logs/*.log" ]
+read_from = "beginning"
+[sinks.to_clickhouse]
+type = "clickhouse"
+inputs = [ "our_log" ]
+database = "custom"
+endpoint = "http://51.250.90.221:8123"
+table = "my_table"
+compression = "gzip"

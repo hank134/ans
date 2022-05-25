@@ -64,6 +64,32 @@ resource "yandex_compute_instance" "vm-2" {
     ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
   }
 }
+# VM
+resource "yandex_compute_instance" "vm-3" {
+  name = "lighthouse-01"
+
+  resources {
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "fd80le4b8gt2u33lvubr"
+      type     = "network-hdd"
+      size     = "20"
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-1.id
+    nat       = true
+  }
+
+  metadata = {
+    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+  }
+}
 #Net
 resource "yandex_vpc_network" "network-1" {
   name = "network1"
@@ -76,19 +102,23 @@ resource "yandex_vpc_subnet" "subnet-1" {
 }
 
 
-output "clickhouse-01" {
+output "clickhouse-01_local" {
   value = yandex_compute_instance.vm-1.network_interface.0.ip_address
 }
 
-output "internal_ip_address_vm_2" {
+output "vector-01_local" {
+  value = yandex_compute_instance.vm-2.network_interface.0.ip_address
+}
+output "lighthouse-01_local" {
   value = yandex_compute_instance.vm-2.network_interface.0.ip_address
 }
 
-
-output "vector-01" {
+output "clickhouse-01" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
-
-output "external_ip_address_vm_2" {
+output "vector-01" {
   value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
+}
+output "lighthouse-01" {
+  value = yandex_compute_instance.vm-3.network_interface.0.nat_ip_address
 }
