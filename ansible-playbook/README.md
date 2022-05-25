@@ -16,11 +16,11 @@
 8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
 9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
     
-    [README.md](https://github.com/hank134/ansible8/blob/08-ansible-02-playbook/08-ansible-03-yandex/playbook/README.md)  
+    [README.md](https://github.com/hank134/ansible8/blob/08-ansible-03-yandex/ansible-playbook/playbook/README.md)  
 
 10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
     
-    [Playbook](https://github.com/hank134/ansible8/blob/08-ansible-02-playbook/08-ansible-03-yandex/playbook/site.yml)
+    [Playbook](https://github.com/hank134/ansible8/blob/08-ansible-03-yandex/ansible-playbook/playbook/site.yml)
 ---
 
 
