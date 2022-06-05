@@ -31,7 +31,7 @@
     [Playbook](https://github.com/hank134/ansible8/tree/main/ansible-playbook/playbook-roles)  
     [Vector-role](https://github.com/hank134/vector-role)  
     [Lighthouse-role](https://github.com/hank134/lighthouse-role)  
-
+ 
 ---
 
 ### Как оформить ДЗ?
