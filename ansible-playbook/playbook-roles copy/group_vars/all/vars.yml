@@ -1,0 +1,5 @@
+clickhouse_listen_host_custom: [0.0.0.0]
+vector_version: 0.21.2
+clickhouse_host_ip: 51.250.15.134
+nginx_host_username: centos
+lighthouse_git: https://github.com/VKCOM/lighthouse.git

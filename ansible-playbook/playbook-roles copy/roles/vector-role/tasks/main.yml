@@ -1,0 +1,28 @@
+---
+- name: CheckVectorVersion
+  debug:
+    msg: "Version: {{ vector_version }}"
+- name: Install Vector
+  become: true
+  ansible.builtin.yum:
+    name: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
+    state: present
+- name: Copy_config_vector
+  ansible.builtin.template:
+    src: vector.toml.j2
+    dest: /home/centos/vector.toml
+    mode: "0644"
+    owner: centos
+    group: centos
+- name: Validate Vector
+  ansible.builtin.command: vector validate --no-environment /home/centos/vector.toml
+  changed_when: false
+- name: Config Vector service
+  become: true
+  ansible.builtin.template:
+    src: vector.service.j2
+    dest: /etc/systemd/system/vector.service
+    mode: "0644"
+    owner: centos
+    group: centos
+  notify: Start Vector service  

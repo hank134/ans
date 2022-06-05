@@ -14,7 +14,7 @@
       ansible.builtin.yum:
         name: epel-release
         state: present
-    - name: Insatall Nginx
+    - name: Install Nginx
       become: true
       ansible.builtin.yum:
         name: nginx

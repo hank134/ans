@@ -24,9 +24,9 @@ vector.service | конфигурация сервиса Vector
 ## Play  
 Плей | Таска/Хендлеры |Описание
 ---: | --- | --- 
-Install Nginx | - | Устанвока и запуска Nginx для Lighthouse
+Install Nginx | - | Установка и запуска Nginx для Lighthouse
 -| Install Epel | Установка Epel
--| Install Nginx | Инсталяция Nginx
+-| Install Nginx | Инсталляция Nginx
 -| Start-nginx | запуск nginx
 -| Reload-nginx | перезапуск nginx
 Install LightHouse | - | Установка lighthouse и настройка Nginx
@@ -43,5 +43,5 @@ Install Clickhouse | - |Установка Clickhouse
 Install Vector| - |плей установки Vector  
 -|Copy_config_vector | Копирование демо конфига Vector  
 -|Validate Vector | проверка конфига Vector
--| Config Vector service | Копирвоание конфига  Vector
+-| Config Vector service | Копирование конфига  Vector
 -| Start Vector service | запуск службы Vector

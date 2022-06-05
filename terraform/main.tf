@@ -113,12 +113,12 @@ output "lighthouse-01_local" {
   value = yandex_compute_instance.vm-2.network_interface.0.ip_address
 }
 
-output "clickhouse-01" {
+output "clickhouse_ip" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
 }
-output "vector-01" {
+output "vector_ip" {
   value = yandex_compute_instance.vm-2.network_interface.0.nat_ip_address
 }
-output "lighthouse-01" {
+output "lighthouse_ip" {
   value = yandex_compute_instance.vm-3.network_interface.0.nat_ip_address
 }

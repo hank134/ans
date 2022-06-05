@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-meta.json": "file:///home/tim/ansible8/ansible-playbook/playbook-roles/site.yml"
+    }
+}
