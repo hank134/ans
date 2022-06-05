@@ -1,28 +1,41 @@
-# Домашнее задание к занятию "08.03 Использование Yandex Cloud"
+# Домашнее задание к занятию "8.4 Работа с Roles"
 
 ## Подготовка к выполнению
-
-1. Подготовьте в Yandex Cloud три хоста: для `clickhouse`, для `vector` и для `lighthouse`.
+1. Создайте два пустых публичных репозитория в любом своём проекте: vector-role и lighthouse-role.
+2. Добавьте публичную часть своего ключа к своему профилю в github.
 
 ## Основная часть
 
-1. Допишите playbook: нужно сделать ещё один play, который устанавливает и настраивает lighthouse.
-2. При создании tasks рекомендую использовать модули: `get_url`, `template`, `yum`, `apt`.
-3. Tasks должны: скачать статику lighthouse, установить nginx или любой другой webserver, настроить его конфиг для открытия lighthouse, запустить webserver.
-4. Приготовьте свой собственный inventory файл `prod.yml`.
-5. Запустите `ansible-lint site.yml` и исправьте ошибки, если они есть.
-6. Попробуйте запустить playbook на этом окружении с флагом `--check`.
-7. Запустите playbook на `prod.yml` окружении с флагом `--diff`. Убедитесь, что изменения на системе произведены.
-8. Повторно запустите playbook с флагом `--diff` и убедитесь, что playbook идемпотентен.
-9. Подготовьте README.md файл по своему playbook. В нём должно быть описано: что делает playbook, какие у него есть параметры и теги.
-    
-    [README.md](https://github.com/hank134/ansible8/blob/08-ansible-03-yandex/ansible-playbook/playbook/README.md)  
+Наша основная цель - разбить наш playbook на отдельные roles. Задача: сделать roles для clickhouse, vector и lighthouse и написать playbook для использования этих ролей. Ожидаемый результат: существуют три ваших репозитория: два с roles и один с playbook.
 
-10. Готовый playbook выложите в свой репозиторий, поставьте тег `08-ansible-03-yandex` на фиксирующий коммит, в ответ предоставьте ссылку на него.
-    
-    [Playbook](https://github.com/hank134/ansible8/blob/08-ansible-03-yandex/ansible-playbook/playbook/site.yml)
+1. Создать в старой версии playbook файл `requirements.yml` и заполнить его следующим содержимым:
+
+   ```yaml
+   ---
+     - src: git@github.com:AlexeySetevoi/ansible-clickhouse.git
+       scm: git
+       version: "1.11.0"
+       name: clickhouse 
+   ```
+
+2. При помощи `ansible-galaxy` скачать себе эту роль.
+3. Создать новый каталог с ролью при помощи `ansible-galaxy role init vector-role`.
+4. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`. 
+5. Перенести нужные шаблоны конфигов в `templates`.
+6. Описать в `README.md` обе роли и их параметры.
+7. Повторите шаги 3-6 для lighthouse. Помните, что одна роль должна настраивать один продукт.
+8. Выложите все roles в репозитории. Проставьте тэги, используя семантическую нумерацию Добавьте roles в `requirements.yml` в playbook.
+9. Переработайте playbook на использование roles. Не забудьте про зависимости lighthouse и возможности совмещения `roles` с `tasks`.
+10. Выложите playbook в репозиторий.
+11. В ответ приведите ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.  
+    [Playbook](https://github.com/hank134/ansible8/tree/main/ansible-playbook/playbook-roles)  
+    [Vector-role](https://github.com/hank134/vector-role)  
+    [Lighthouse-role](https://github.com/hank134/lighthouse-role)  
+
 ---
 
+### Как оформить ДЗ?
 
+Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
 
 ---
