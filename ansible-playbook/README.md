@@ -28,7 +28,7 @@
 9. Переработайте playbook на использование roles. Не забудьте про зависимости lighthouse и возможности совмещения `roles` с `tasks`.
 10. Выложите playbook в репозиторий.
 11. В ответ приведите ссылки на оба репозитория с roles и одну ссылку на репозиторий с playbook.  
-    [Playbook](https://github.com/hank134/ansible8/tree/main/ansible-playbook/playbook-roles)  
+    [Playbook](playbook-roles)  
     [Vector-role](https://github.com/hank134/vector-role)  
     [Lighthouse-role](https://github.com/hank134/lighthouse-role)  
  
