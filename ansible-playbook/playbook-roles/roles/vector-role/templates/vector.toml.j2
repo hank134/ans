@@ -1,7 +1,7 @@
 [sources.our_log]
 type = "file"
 ignore_older_secs = 600
-include = [ "/home/centos/logs/*.log" ]
+include = [ "/home/logs/*.log" ]
 read_from = "beginning"
 [sinks.clickhouse]
 type = "clickhouse"
