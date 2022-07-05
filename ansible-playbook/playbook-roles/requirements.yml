@@ -11,7 +11,7 @@
 
       - src: git@github.com:hank134/vector-role.git
         scm: git
-        version: "main"
+        version: "1.1"
         name: vector-role         
 
       - src: git@github.com:hank134/lighthouse-role.git

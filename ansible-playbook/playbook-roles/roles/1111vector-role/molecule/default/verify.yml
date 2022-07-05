@@ -1,0 +1,19 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Example assertion
+    assert:
+      that: true
+  - name: Validate Vector Config
+    ansible.builtin.command: vector validate --no-environment /home/vector.toml
+    changed_when: false 
+  - name: Validate Vector install
+    ansible.builtin.command: vector --version
+    changed_when: false 
+  - name: Validate Vector Start
+    ansible.builtin.command: echo 'Hello world!' | vector
+    changed_when: false 
