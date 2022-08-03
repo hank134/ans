@@ -18,6 +18,9 @@
 7. Проверить работоспособность, исправить ошибки, исправленный Pipeline вложить в репозиторий в файл `ScriptedJenkinsfile`. Цель: получить собранный стек ELK в Ya.Cloud.
 8. Отправить две ссылки на репозитории в ответе: с ролью и Declarative Pipeline и c плейбукой и Scripted Pipeline.
 
+[Declarative Pipeline](https://github.com/hank134/vector-role/blob/main/Jenkinsfile) , [Role](https://github.com/hank134/vector-role)  
+[Scripted Pipeline](./decpipe/ScriptedJenkinsfile)
+
 ## Необязательная часть
 
 1. Создать скрипт на groovy, который будет собирать все Job, которые завершились хотя бы раз неуспешно. Добавить скрипт в репозиторий с решеним с названием `AllJobFailure.groovy`.
