@@ -79,7 +79,7 @@
 
 В решении задания - приведите листинг этого файла.
 
-[TestDashboard.json](./TestDashboard.json)
+[TestDashboard.json](./testDashboard.json)
 
 
 ---
